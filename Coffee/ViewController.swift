@@ -17,6 +17,14 @@ class ViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   
   // MARK: Functions
+  
+  /**
+  Update venues from Foursquare if needed. Retrieve venue data from realm, sort it base on distance, update mapView, and update tableView.
+  
+  - Parameter location: Location of user.
+  - Parameter getDataFromFoursquare: Request data from Foursquare.
+  
+  */
   func refreshVenues(location: CLLocation?, getDataFromFoursquare: Bool = false) {
     if let location = location {
       lastLocation = location
@@ -47,11 +55,23 @@ class ViewController: UIViewController {
     }
   }
   
+  /**
+   Updates the CoffeeAnnotation on the mapView
+  */
   func onVenuesUpdated() {
     refreshVenues(nil)
   }
   
   // MARK: Private Functions
+  
+  /**
+  Calculate the region's top left and bottom right coordinate2D from a specified location.
+  
+  - Parameter location: Location center.
+  
+  - Returns: Tuple holding the top left and bottom right coordinate2D.
+  
+  */
   private func calculateCoordinatesWithRegion(location: CLLocation) -> (CLLocationCoordinate2D, CLLocationCoordinate2D) {
     let region = MKCoordinateRegionMakeWithDistance(location.coordinate, distanceSpan, distanceSpan)
     
@@ -90,12 +110,17 @@ class ViewController: UIViewController {
   
   // MARK: Properties
   var locationManager: CLLocationManager!
+  
+  /// Default distance span to display mapView.
   let distanceSpan: Double = 1000
   
   var lastLocation: CLLocation?
+  
+  /// Array of venues.
   var venues: [Venue]?
 }
 
+// MARK: UITableViewDataSource, UITableViewDelegate
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return venues?.count ?? 0
@@ -124,6 +149,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
   }
 }
 
+// MARK: MKMapViewDelegate
 extension ViewController: MKMapViewDelegate {
   func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
     if annotation.isKindOfClass(MKUserLocation) {
@@ -144,6 +170,7 @@ extension ViewController: MKMapViewDelegate {
   }
 }
 
+// MARK: CLLocationManagerDelegate
 extension ViewController: CLLocationManagerDelegate {
   func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
     if let mapView = mapView {
