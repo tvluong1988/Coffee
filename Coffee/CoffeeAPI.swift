@@ -18,13 +18,6 @@ struct API {
     /// Key for successful update of venues from Foursquare.
     static let venuesUpdated = "venues updated"
   }
-  
-  /// Key for connecting to Foursquare developer API.
-  struct FoursquareClient {
-    static let id = "INJQJ10RYXC2R3ARAVUPJMU2V5NPU0G3WPFMXWP1QJL2HJU2"
-    static let secret = "FACL3UCK0GC1PSKMZT32U5LYO2FDJ35VQPHQVFFDQXCD0KTO"
-    static let url = ""
-  }
 }
 
 /// Singleton for handling coffee venues.
@@ -110,7 +103,7 @@ class CoffeeAPI {
   // MARK: Lifecycle
   /// Start session with Foursquare.
   init() {
-    let client = Client(clientID: API.FoursquareClient.id, clientSecret: API.FoursquareClient.secret, redirectURL: API.FoursquareClient.url)
+    let client = Client(clientID: FoursquareClient.id, clientSecret: FoursquareClient.secret, redirectURL: FoursquareClient.url)
     
     let config = Configuration(client: client)
     Session.setupSharedSessionWithConfiguration(config)

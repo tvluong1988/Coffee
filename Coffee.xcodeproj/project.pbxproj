@@ -17,6 +17,8 @@
 		8BA8B5601C17DE3300F26557 /* CoffeeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA8B55F1C17DE3300F26557 /* CoffeeUITests.swift */; };
 		8BA8B56E1C17E8AC00F26557 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BA8B56D1C17E8AC00F26557 /* MapKit.framework */; };
 		8BAEF5E81C19312800B48A0F /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAEF5E71C19312800B48A0F /* Venue.swift */; };
+		8BCBB2621C1A403B00B00408 /* VenueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCBB2611C1A403B00B00408 /* VenueManager.swift */; };
+		8BCBB2661C1A747300B00408 /* PrivateKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCBB2651C1A747300B00408 /* PrivateKey.swift */; };
 		8BEBB09B1C191D00007FF0D7 /* CoffeeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEBB09A1C191D00007FF0D7 /* CoffeeAPI.swift */; };
 		99780BF943BB87690C78B4DF /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D22BEAFD0827AA2060C66B2 /* Pods.framework */; };
 /* End PBXBuildFile section */
@@ -57,6 +59,8 @@
 		8BA8B5611C17DE3300F26557 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BA8B56D1C17E8AC00F26557 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		8BAEF5E71C19312800B48A0F /* Venue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
+		8BCBB2611C1A403B00B00408 /* VenueManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueManager.swift; sourceTree = "<group>"; };
+		8BCBB2651C1A747300B00408 /* PrivateKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateKey.swift; sourceTree = "<group>"; };
 		8BEBB09A1C191D00007FF0D7 /* CoffeeAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoffeeAPI.swift; sourceTree = "<group>"; };
 		EDAB47B35F7A277BEB9D11AD /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,6 +114,7 @@
 			children = (
 				8BEBB09A1C191D00007FF0D7 /* CoffeeAPI.swift */,
 				8BAEF5E71C19312800B48A0F /* Venue.swift */,
+				8BCBB2611C1A403B00B00408 /* VenueManager.swift */,
 				8B037FF81C19EC8F0015A64B /* CoffeeAnnotation.swift */,
 			);
 			name = Model;
@@ -143,6 +148,7 @@
 				8B037FFA1C19FD160015A64B /* Controller */,
 				8B037FFB1C19FD200015A64B /* Model */,
 				8BA8B5431C17DE3300F26557 /* Main.storyboard */,
+				8BCBB2651C1A747300B00408 /* PrivateKey.swift */,
 				8BEBB0991C191CDF007FF0D7 /* Support */,
 			);
 			path = Coffee;
@@ -376,8 +382,10 @@
 				8BA8B5421C17DE3300F26557 /* ViewController.swift in Sources */,
 				8B037FF91C19EC8F0015A64B /* CoffeeAnnotation.swift in Sources */,
 				8BAEF5E81C19312800B48A0F /* Venue.swift in Sources */,
+				8BCBB2621C1A403B00B00408 /* VenueManager.swift in Sources */,
 				8BEBB09B1C191D00007FF0D7 /* CoffeeAPI.swift in Sources */,
 				8BA8B5401C17DE3300F26557 /* AppDelegate.swift in Sources */,
+				8BCBB2661C1A747300B00408 /* PrivateKey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,7 +8,6 @@
 
 import UIKit
 import MapKit
-import RealmSwift
 
 class ViewController: UIViewController {
   
@@ -35,18 +34,10 @@ class ViewController: UIViewController {
         CoffeeAPI.sharedInstance.getCoffeeShopsWithLocation(location)
       }
       
-      let (topLeft, bottomRight) = calculateCoordinatesWithRegion(location)
-      
-      let predicate = NSPredicate(format: "latitude < %f AND latitude > %f AND longitude < %f AND longitude > %f", topLeft.latitude, bottomRight.latitude, bottomRight.longitude, topLeft.longitude)
-      
-      let realm = try! Realm()
-      
-      venues = realm.objects(Venue).filter(predicate).sort {
-        location.distanceFromLocation($0.coordinate) < location.distanceFromLocation($1.coordinate)
-      }
+      venues = venueManager.getVenues(location)
       
       for venue in venues! {
-        let annotation = CoffeeAnnotation(title: venue.name, subtitle: venue.address, coordinate: CLLocationCoordinate2D(latitude: Double(venue.latitude), longitude: Double(venue.longitude)))
+        let annotation = CoffeeAnnotation(id: venue.id, title: venue.name, subtitle: venue.address, coordinate: CLLocationCoordinate2D(latitude: Double(venue.latitude), longitude: Double(venue.longitude)))
         
         mapView?.addAnnotation(annotation)
       }
@@ -60,30 +51,6 @@ class ViewController: UIViewController {
   */
   func onVenuesUpdated() {
     refreshVenues(nil)
-  }
-  
-  // MARK: Private Functions
-  
-  /**
-  Calculate the region's top left and bottom right coordinate2D from a specified location.
-  
-  - Parameter location: Location center.
-  
-  - Returns: Tuple holding the top left and bottom right coordinate2D.
-  
-  */
-  private func calculateCoordinatesWithRegion(location: CLLocation) -> (CLLocationCoordinate2D, CLLocationCoordinate2D) {
-    let region = MKCoordinateRegionMakeWithDistance(location.coordinate, distanceSpan, distanceSpan)
-    
-    var topLeft = CLLocationCoordinate2D()
-    var bottomRight = CLLocationCoordinate2D()
-    
-    topLeft.latitude = region.center.latitude + region.span.latitudeDelta * 0.5
-    topLeft.longitude = region.center.longitude - region.span.longitudeDelta * 0.5
-    bottomRight.latitude = region.center.latitude - region.span.latitudeDelta * 0.5
-    bottomRight.longitude = region.center.longitude + region.span.longitudeDelta * 0.5
-    
-    return (topLeft, bottomRight)
   }
   
   // MARK: Lifecycle
@@ -110,14 +77,16 @@ class ViewController: UIViewController {
   
   // MARK: Properties
   var locationManager: CLLocationManager!
-  
-  /// Default distance span to display mapView.
-  let distanceSpan: Double = 1000
-  
+  var venueManager = VenueManager()
   var lastLocation: CLLocation?
   
   /// Array of venues.
   var venues: [Venue]?
+  
+  /// Distance span of mapView
+  var distanceSpan: Double {
+    return venueManager.distanceSpan
+  }
 }
 
 // MARK: UITableViewDataSource, UITableViewDelegate
@@ -145,6 +114,15 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     if let venue = venues?[indexPath.row] {
       let region = MKCoordinateRegionMakeWithDistance(venue.coordinate2D, distanceSpan, distanceSpan)
       mapView?.setRegion(region, animated: true)
+      
+      if let annotations = mapView?.annotations {
+        for annotation in annotations {
+          if let annotation = annotation as? CoffeeAnnotation where annotation.id == venue.id {
+            mapView?.selectAnnotation(annotation, animated: true)
+            break
+          }
+        }
+      }
     }
   }
 }

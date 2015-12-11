@@ -12,6 +12,8 @@ import MapKit
 class CoffeeAnnotation: NSObject, MKAnnotation {
   // MARK: Properties
   
+  let id: String?
+  
   /// Title of Coffee venue.
   let title: String?
   
@@ -31,7 +33,8 @@ class CoffeeAnnotation: NSObject, MKAnnotation {
   - Parameter coordinate: Location coordinate of venue.
   
   */
-  init(title: String?, subtitle: String?, coordinate: CLLocationCoordinate2D) {
+  init(id: String?, title: String?, subtitle: String?, coordinate: CLLocationCoordinate2D) {
+    self.id = id
     self.title = title
     self.subtitle = subtitle
     self.coordinate = coordinate
