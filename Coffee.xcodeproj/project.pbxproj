@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8B037FF91C19EC8F0015A64B /* CoffeeAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B037FF81C19EC8F0015A64B /* CoffeeAnnotation.swift */; };
+		8B9E495E1C1D02350037C46A /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E495D1C1D02350037C46A /* README.md */; };
+		8B9E49601C1D023E0037C46A /* Simulation.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8B9E495F1C1D023E0037C46A /* Simulation.gif */; };
 		8BA8B5401C17DE3300F26557 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA8B53F1C17DE3300F26557 /* AppDelegate.swift */; };
 		8BA8B5421C17DE3300F26557 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA8B5411C17DE3300F26557 /* ViewController.swift */; };
 		8BA8B5451C17DE3300F26557 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BA8B5431C17DE3300F26557 /* Main.storyboard */; };
@@ -44,6 +46,8 @@
 		39FE3E408D26DCE312A024D1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		4D22BEAFD0827AA2060C66B2 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B037FF81C19EC8F0015A64B /* CoffeeAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoffeeAnnotation.swift; sourceTree = "<group>"; };
+		8B9E495D1C1D02350037C46A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		8B9E495F1C1D023E0037C46A /* Simulation.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Simulation.gif; sourceTree = "<group>"; };
 		8BA8B53C1C17DE3300F26557 /* Coffee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Coffee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BA8B53F1C17DE3300F26557 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BA8B5411C17DE3300F26557 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +127,8 @@
 		8BA8B5331C17DE3300F26557 = {
 			isa = PBXGroup;
 			children = (
+				8B9E495D1C1D02350037C46A /* README.md */,
+				8B9E495F1C1D023E0037C46A /* Simulation.gif */,
 				8BA8B53E1C17DE3300F26557 /* Coffee */,
 				8BA8B5531C17DE3300F26557 /* CoffeeTests */,
 				8BA8B55E1C17DE3300F26557 /* CoffeeUITests */,
@@ -307,6 +313,7 @@
 				8BA8B54A1C17DE3300F26557 /* LaunchScreen.storyboard in Resources */,
 				8BA8B5471C17DE3300F26557 /* Assets.xcassets in Resources */,
 				8BA8B5451C17DE3300F26557 /* Main.storyboard in Resources */,
+				8B9E49601C1D023E0037C46A /* Simulation.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,6 +392,7 @@
 				8BCBB2621C1A403B00B00408 /* VenueManager.swift in Sources */,
 				8BEBB09B1C191D00007FF0D7 /* CoffeeAPI.swift in Sources */,
 				8BA8B5401C17DE3300F26557 /* AppDelegate.swift in Sources */,
+				8B9E495E1C1D02350037C46A /* README.md in Sources */,
 				8BCBB2661C1A747300B00408 /* PrivateKey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
